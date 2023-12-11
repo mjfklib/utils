@@ -65,6 +65,25 @@ class FileMethods
 
 
     /**
+     * @param string $pattern
+     * @param int $flags
+     * @return void
+     */
+    public static function deleteFiles(
+        string $pattern,
+        int $flags = 0
+    ): void {
+        array_map(
+            'unlink',
+            array_filter(
+                static::glob($pattern, $flags),
+                'is_file'
+            )
+        );
+    }
+
+
+    /**
      * @param string $path
      * @return string
      */
