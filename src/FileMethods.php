@@ -112,7 +112,7 @@ class FileMethods
         string $path,
         string|array $contents
     ): int {
-        $contents = (is_array($contents) ? implode("\n", $contents) : $contents) . "\n";
+        $contents = (is_array($contents) ? implode(PHP_EOL, $contents) : $contents) . PHP_EOL;
         $bytes = file_put_contents($path, $contents);
         return $bytes === strlen($contents)
             ? $bytes
