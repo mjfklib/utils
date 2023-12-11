@@ -19,9 +19,9 @@ class ArrayValue
 
     /**
      * @param mixed $value
-     * @return array<string,string>|null
+     * @return array<string,string>
      */
-    public static function convertToStringArray(mixed $value): array|null
+    public static function convertToStringArray(mixed $value): array
     {
         $value = static::getStringArrayValue($value);
         return $value ?? throw new \ValueError("Unable to convert to string array");
