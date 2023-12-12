@@ -36,27 +36,34 @@ class FileMethods
 
 
     /**
-     * @param string $path
+     * @param string|string[] $path
      * @param string $ext
+     * @param int $flags
      * @return array<string,string>
      */
     public static function getFiles(
-        string $path,
-        string $ext
+        string|array $path,
+        string $ext = '',
+        int $flags = 0
     ): array {
-        $ext = ltrim($ext, ".");
-        $offset = strlen($ext) > 0 ? -1 * (strlen($ext) + 1) : 0;
+        $ext = ltrim($ext, '.');
+        $ext = $ext !== '' ? ".{$ext}" : '';
+
+        $files = array_values(array_filter(
+            is_string($path)
+                ? static::glob(rtrim($path, "/") . "/*" . $ext, $flags)
+                : $path,
+            'is_file'
+        ));
+        sort($files);
 
         return array_column(
             array_map(
                 fn (string $f): array => [
-                    $offset < 0 ? substr($f, 0, $offset) : $f,
+                    basename($f, $ext),
                     $f
                 ],
-                array_filter(
-                    static::glob("{$path}/*.{$ext}"),
-                    'is_file'
-                )
+                $files
             ),
             0,
             1
