@@ -33,12 +33,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return bool
      */
     public static function getBool(
         array $values,
-        string $name
+        string|array $name
     ): bool {
         return static::getValue(
             $values,
@@ -51,12 +51,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return bool|null
      */
     public static function getBoolNull(
         array $values,
-        string $name
+        string|array $name
     ): bool|null {
         return static::getValue(
             $values,
@@ -69,12 +69,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return float
      */
     public static function getFloat(
         array $values,
-        string $name
+        string|array $name
     ): float {
         return static::getValue(
             $values,
@@ -87,12 +87,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return float|null
      */
     public static function getFloatNull(
         array $values,
-        string $name
+        string|array $name
     ): float|null {
         return static::getValue(
             $values,
@@ -105,12 +105,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return int
      */
     public static function getInt(
         array $values,
-        string $name
+        string|array $name
     ): int {
         return static::getValue(
             $values,
@@ -123,12 +123,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return int|null
      */
     public static function getIntNull(
         array $values,
-        string $name
+        string|array $name
     ): int|null {
         return static::getValue(
             $values,
@@ -141,12 +141,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return string
      */
     public static function getString(
         array $values,
-        string $name
+        string|array $name
     ): string {
         return static::getValue(
             $values,
@@ -159,12 +159,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return string|null
      */
     public static function getStringNull(
         array $values,
-        string $name
+        string|array $name
     ): string|null {
         return static::getValue(
             $values,
@@ -177,12 +177,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return mixed[]
      */
     public static function getArray(
         array $values,
-        string $name
+        string|array $name
     ): array {
         return static::getValue(
             $values,
@@ -195,12 +195,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return mixed[]|null
      */
     public static function getArrayNull(
         array $values,
-        string $name
+        string|array $name
     ): array|null {
         return static::getValue(
             $values,
@@ -213,12 +213,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return array<string,string>
      */
     public static function getStringArray(
         array $values,
-        string $name
+        string|array $name
     ): array {
         return static::getValue(
             $values,
@@ -231,12 +231,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return array<string,string>|null
      */
     public static function getStringArrayNull(
         array $values,
-        string $name
+        string|array $name
     ): array|null {
         return static::getValue(
             $values,
@@ -249,12 +249,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return object
      */
     public static function getObject(
         array $values,
-        string $name
+        string|array $name
     ): object {
         return static::getValue(
             $values,
@@ -267,12 +267,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return object|null
      */
     public static function getObjectNull(
         array $values,
-        string $name
+        string|array $name
     ): object|null {
         return static::getValue(
             $values,
@@ -285,12 +285,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return \DateTimeInterface
      */
     public static function getDateTime(
         array $values,
-        string $name
+        string|array $name
     ): \DateTimeInterface {
         return static::getValue(
             $values,
@@ -303,12 +303,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return \DateTimeInterface|null
      */
     public static function getDateTimeNull(
         array $values,
-        string $name
+        string|array $name
     ): \DateTimeInterface|null {
         return static::getValue(
             $values,
@@ -321,12 +321,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return resource
      */
     public static function getResource(
         array $values,
-        string $name
+        string|array $name
     ): mixed {
         return static::getValue(
             $values,
@@ -339,12 +339,12 @@ class ArrayValue
 
     /**
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @return resource|null
      */
     public static function getResourceNull(
         array $values,
-        string $name
+        string|array $name
     ): mixed {
         return static::getValue(
             $values,
@@ -371,11 +371,14 @@ class ArrayValue
 
 
     /**
-     * @param string $name
+     * @param string|string[] $name
      * @return \ValueError
      */
-    protected static function err(string $name): \ValueError
+    protected static function err(string|array $name): \ValueError
     {
+        if (is_array($name)) {
+            $name = implode(",", $name);
+        }
         return new \ValueError("Unable to get value: {$name}");
     }
 
@@ -383,33 +386,49 @@ class ArrayValue
     /**
      * @template T
      * @param mixed[] $values
-     * @param string $name
+     * @param string|string[] $name
      * @param (callable(mixed $v): bool) $isValue
      * @param (callable(mixed $v): T) $castValue
      * @return T
      */
     protected static function getValue(
         array $values,
-        string $name,
+        string|array $name,
         callable $isValue,
         callable $castValue
     ): mixed {
-        $value = $values[$name] ?? null;
-        if (!$isValue($value)) {
-            $value = $castValue($value);
+        if (is_string($name)) {
+            $value = $values[$name] ?? null;
+            if (!$isValue($value)) {
+                $value = $castValue($value);
+            }
+            /** @var T $value */
+            return $value;
         }
-        /** @var T $value */
-        return $value;
+
+        foreach ($name as $n) {
+            try {
+                $value = $values[$n] ?? null;
+                if (!$isValue($value)) {
+                    $value = $castValue($value);
+                }
+                /** @var T $value */
+                return $value;
+            } catch (\ValueError) {
+            }
+        }
+
+        throw self::err($name);
     }
 
 
     /**
-     * @param string $name
+     * @param string|string[] $name
      * @param mixed $value
      * @return null
      */
     protected static function getNullValue(
-        string $name,
+        string|array $name,
         mixed $value
     ): null {
         return is_null($value) ? null : throw static::err($name);
