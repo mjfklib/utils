@@ -15,7 +15,7 @@ final class JSON
     public static function encode(
         mixed $value,
         int $depth = 512,
-        int $flags = 0
+        int $flags = JSON_PRETTY_PRINT,
     ): string {
         return json_encode(
             $value,
