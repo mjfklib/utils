@@ -36,6 +36,32 @@ class FileMethods
 
 
     /**
+     * @param string $file
+     * @return string
+     */
+    public static function getFilePath(string $file): string
+    {
+        $path = self::getRealPath($file);
+        return is_file($path)
+            ? $path
+            : throw new \RuntimeException("File not found: {$file}");
+    }
+
+
+    /**
+     * @param string $dir
+     * @return string
+     */
+    public static function getDirPath(string $dir): string
+    {
+        $path = self::getRealPath($dir);
+        return is_dir($path)
+            ? $path
+            : throw new \RuntimeException("Directory not found: {$dir}");
+    }
+
+
+    /**
      * @param string|string[] $path
      * @param string $ext
      * @param int $flags
@@ -96,9 +122,7 @@ class FileMethods
      */
     public static function getContents(string $path): string
     {
-        if (!is_file($path)) {
-            throw new \RuntimeException("File not found: {$path}");
-        }
+        $path = self::getFilePath($path);
         if (!is_readable($path)) {
             throw new \RuntimeException("File not readable: {$path}");
         }
