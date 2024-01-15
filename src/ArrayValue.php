@@ -430,7 +430,7 @@ class ArrayValue
     protected static function getNullValue(
         string|array $name,
         mixed $value
-    ): null {
+    ): mixed {
         return is_null($value) ? null : throw static::err($name);
     }
 
